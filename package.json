@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node --harmony bin/www",
-    "dev": "./node_modules/.bin/nodemon --harmony bin/www",
+    "dev": "nodemon --harmony bin/www",
     "prd": "pm2 start bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive test/{,**/}*.test.js"
   },
   "dependencies": {
     "debug": "^2.6.3",
@@ -22,6 +22,9 @@
     "pug": "^2.0.0-rc.1"
   },
   "devDependencies": {
-    "nodemon": "^1.8.1"
+    "nodemon": "^1.8.1",
+    "mocha": "3.2.0",
+    "should": "11.2.0",
+    "supertest": "3.0.0"
   }
 }
