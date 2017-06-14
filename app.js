@@ -20,7 +20,7 @@ app.use(json())
 app.use(logger())
 app.use(require('koa-static')(path.join(__dirname, 'public')))
 
-app.use(views(path.join(__dirname, 'views'), {
+app.use(views(path.join(__dirname, 'app/views'), {
   extension: 'pug'
 }))
 
@@ -35,6 +35,6 @@ app.use(async (ctx, next) => {
 // routes
 // app.use(index.routes(), index.allowedMethods())
 // app.use(users.routes(), users.allowedMethods())
-mount(app, path.join(__dirname, 'routes'), true)
+mount(app, path.join(__dirname, 'app/routes'), true)
 
 module.exports = app
