@@ -21,10 +21,14 @@
     "koa-static": "^3.0.0",
     "koa-views": "^5.2.1",
     "mongoose": "^4.10.5",
+    "mount-koa-routes": "^2.0.1",
     "pug": "^2.0.0-rc.1"
   },
   "devDependencies": {
     "ava": "^0.19.1",
-    "nodemon": "^1.8.1"
+    "nodemon": "^1.8.1",
+    "sinon": "^2.3.4",
+    "superkoa": "^1.0.3",
+    "zombie": "^5.0.5"
   }
 }

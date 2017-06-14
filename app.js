@@ -7,8 +7,9 @@ const bodyparser = require('koa-bodyparser')()
 const logger = require('koa-logger')
 const path = require('path')
 
-const index = require('./routes/index')
-const users = require('./routes/users')
+const mount = require('mount-koa-routes')
+// const index = require('./routes/index')
+// const users = require('./routes/users')
 
 // error handler
 onerror(app)
@@ -17,9 +18,9 @@ onerror(app)
 app.use(bodyparser)
 app.use(json())
 app.use(logger())
-app.use(require('koa-static')(path.join(__dirname, '/public')))
+app.use(require('koa-static')(path.join(__dirname, 'public')))
 
-app.use(views(path.join(__dirname, '/views'), {
+app.use(views(path.join(__dirname, 'views'), {
   extension: 'pug'
 }))
 
@@ -32,7 +33,8 @@ app.use(async (ctx, next) => {
 })
 
 // routes
-app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
+// app.use(index.routes(), index.allowedMethods())
+// app.use(users.routes(), users.allowedMethods())
+mount(app, path.join(__dirname, 'routes'), true)
 
 module.exports = app
